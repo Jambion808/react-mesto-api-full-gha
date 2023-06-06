@@ -8,7 +8,12 @@ const serverError = require('./errors/server-error');
 const auth = require('./middlewares/auth');
 const { validCreateUser, validLogin } = require('./middlewares/validation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const corsConfig = require('./middlewares/corsConfig');
+const allowedCors = require('./middlewares/corsConfig');
+
+const corsConfig = {
+  origin: allowedCors,
+  optionSuccessStatus: 200,
+};
 
 const { PORT = 3000 } = process.env;
 
