@@ -32,10 +32,7 @@ function App() {
 
   useEffect(() => {
     handleTokenCheck();
-<<<<<<< HEAD
   // eslint-disable-next-line react-hooks/exhaustive-deps
-=======
->>>>>>> b8c5065ae2f465f44e13e80faa6e0e60b5d02437
   }, []);
 
   function handleTokenCheck() {
