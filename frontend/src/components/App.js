@@ -8,7 +8,7 @@ import EditProfilePopup from "./EditProfilePopup.js";
 import EditAvatarPopup from "./EditAvatarPopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
 
-import api from "../utils/Api.js";
+import {api} from "../utils/Api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute.js";
