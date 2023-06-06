@@ -1,4 +1,4 @@
-export const baseUrl = 'https://auth.nomoreparties.co'
+export const baseUrl = 'https://api.mesto.taro.nomoredomains.rocks'
 
 const processResponse = (res) => {
     if (res.ok) {
