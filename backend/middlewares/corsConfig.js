@@ -11,7 +11,7 @@ const allowedCors = [
   'http://api.mesto.taro.nomoredomains.rocks',
 ];
 
-const cors = (req, res, next) => {
+const corsConfig = (req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
@@ -31,4 +31,4 @@ const cors = (req, res, next) => {
   return next();
 };
 
-module.export = cors;
+module.export = corsConfig;
