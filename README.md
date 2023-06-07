@@ -14,6 +14,6 @@
 
 IP 158.160.110.187
 
-Frontend https://...
+Frontend https://mesto.taro.nomoredomains.rocks
 
 Backend https://...
