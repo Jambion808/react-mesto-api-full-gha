@@ -89,9 +89,8 @@ const processResponse = (res) => {
 };
 
 const api = new Api({ 
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-60",  
+  baseUrl: "api.mesto.taro.nomoredomains.rocks",  
   headers: { 
-    authorization: "cc77f94d-b1ef-42c0-9cc3-7185b7071d0e", 
     "Content-Type": "application/json", 
   }, 
 }); 

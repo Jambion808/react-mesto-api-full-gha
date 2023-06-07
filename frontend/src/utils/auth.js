@@ -1,4 +1,4 @@
-export const baseUrl = 'https://auth.nomoreparties.co'
+export const baseUrl = 'api.mesto.taro.nomoredomains.rocks'
 
 const processResponse = (res) => {
     if (res.ok) {
@@ -6,7 +6,7 @@ const processResponse = (res) => {
       return response;
     }
     return Promise.reject(new Error("Ошибка"));
-  };
+  }; 
 
 export const register = ({email, password}) => {
     return fetch (`${baseUrl}/signup`,{
@@ -39,4 +39,4 @@ export const checkToken = (token) => {
             "Authorization" : `Bearer ${token}`
         }
     }).then(processResponse);
-};
+}; 
