@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const routes = require('./routes/index');
 const { login, createUser } = require('./controllers/users');
@@ -15,6 +16,7 @@ app.use(express.json());
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 app.use(requestLogger);
+app.use(cors());
 
 app.post('/signin', validLogin, login);
 app.post('/signup', validCreateUser, createUser);
