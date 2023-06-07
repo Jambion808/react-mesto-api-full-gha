@@ -21,7 +21,7 @@ app.use(cors);
 app.post('/signin', validLogin, login);
 app.post('/signup', validCreateUser, createUser);
 app.use(auth);
-app.use('/', routes);
+app.use('/api', routes);
 
 app.use(errorLogger);
 
