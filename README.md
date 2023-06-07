@@ -10,8 +10,6 @@
 ## Ссылки на проект
    
 
-
-
 IP 158.160.110.187
 
 Frontend https://mesto.taro.nomoredomains.rocks
