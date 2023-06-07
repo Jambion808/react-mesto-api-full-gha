@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.mesto.taro.nomoredomains.rocks'
+export const baseUrl = 'https://auth.nomoreparties.co'
 
 const processResponse = (res) => {
     if (res.ok) {
@@ -9,7 +9,7 @@ const processResponse = (res) => {
   };
 
 export const register = ({email, password}) => {
-    return fetch(`${BASE_URL}/signup`,{
+    return fetch (`${baseUrl}/signup`,{
         method: 'POST',
         headers: {
             "Accept": "application/json",
@@ -20,9 +20,10 @@ export const register = ({email, password}) => {
 };
 
 export const login = ({email, password}) => {
-    return fetch(`${BASE_URL}/signin`,{
+    return fetch (`${baseUrl}/signin`,{
         method: 'POST',
         headers: {
+            "Accept": "application/json",
             "Content-Type": "application/json" 
         },
         body: JSON.stringify({email, password})
@@ -30,9 +31,10 @@ export const login = ({email, password}) => {
 };
 
 export const checkToken = (token) => {
-    return fetch(`${BASE_URL}/users/me`,{
+    return fetch (`${baseUrl}/users/me`,{
         method: 'GET',
         headers: {
+            "Accept": "application/json",
             "Content-Type": "application/json",
             "Authorization" : `Bearer ${token}`
         }

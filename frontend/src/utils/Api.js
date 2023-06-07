@@ -88,9 +88,13 @@ const processResponse = (res) => {
   return Promise.reject(new Error("Ошибка"));
 };
 
-export const api = new Api({ 
-  baseUrl: "https://api.mesto.taro.nomoredomains.rocks",  
+const api = new Api({ 
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-60",  
   headers: { 
+    authorization: "cc77f94d-b1ef-42c0-9cc3-7185b7071d0e", 
     "Content-Type": "application/json", 
   }, 
 }); 
+
+export default api
+
