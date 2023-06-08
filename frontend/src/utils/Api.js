@@ -1,25 +1,37 @@
 class Api {
-  constructor({baseUrl, headers}) {
+  constructor({baseUrl}) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
+    // this._headers = headers;
   }
 
   getInfoAboutUser() {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: {
+        authorization : `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
     }).then(processResponse);
   }
 
   getCardsUser() {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
+      headers: {
+        authorization : `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
     }).then(processResponse);
   }
 
   setInfoAboutUser(data) {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        authorization : `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -28,9 +40,13 @@ class Api {
   }
 
   setAddUserCard(item) {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        authorization : `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         name: item.name,
         link: item.link,
@@ -38,38 +54,54 @@ class Api {
     }).then(processResponse);
   }
 
-  setLikes(id, isLiked) {
+  setLikes(id) {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/cards/${id}/likes`,{
-        method: isLiked ? "PUT" :"DELETE",
-        headers: this._headers,
+        method: "PUT",
+        headers: {
+          authorization : `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
       }
     ).then(processResponse);
   }
 
   deleteLike(id){
+    const token = localStorage.getItem('jwt');
     return fetch(
       `${this._baseUrl}/cards/${id}/likes`,
       {
         method: "DELETE",
-        headers: this._headers,
+        headers: {
+          authorization : `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
       }
     ).then(processResponse);
   }
 
   deleteCard(id){
+    const token = localStorage.getItem('jwt');
     return fetch(
       `${this._baseUrl}/cards/${id}`,
       {
         method: "DELETE",
-        headers: this._headers,
+        headers: {
+          authorization : `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
       }
     ).then(processResponse);
   }
 
   setUserAvatarProfile(data) {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        authorization : `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         avatar: data.avatar
       }),
@@ -89,7 +121,7 @@ const processResponse = (res) => {
 };
 
 const api = new Api({ 
-  baseUrl: "https://api.mesto.taro.nomoredomains.rocks",  
+  baseUrl: "http://api.mesto.taro.nomoredomains.rocks",  
   headers: { 
     "Content-Type": "application/json", 
   }, 

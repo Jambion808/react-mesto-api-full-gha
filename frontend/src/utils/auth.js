@@ -1,4 +1,4 @@
-export const baseUrl = 'https://api.mesto.taro.nomoredomains.rocks'
+export const baseUrl = 'http://api.mesto.taro.nomoredomains.rocks'
 
 const processResponse = (res) => {
     if (res.ok) {
@@ -31,12 +31,11 @@ export const login = ({email, password}) => {
 };
 
 export const checkToken = (token) => {
-    return fetch (`${baseUrl}/users/me`,{
+    return fetch(`${baseUrl}/users/me`,{
         method: 'GET',
         headers: {
-            "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization" : `Bearer ${token}`
+            "authorization" : `Bearer ${token}`
         }
     }).then(processResponse);
 }; 

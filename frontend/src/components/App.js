@@ -41,7 +41,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            setUserEmail(res.data.email);
+            setUserEmail(res.email);
             navigate("/", { replace: true });
           }
         })
@@ -126,19 +126,25 @@ function App() {
     setIsInfoToottip(false);
   }
 
-  function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
-    api
-      .setLikes(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
+  function handleCardLike(card) {
+    const isLiked = card.likes.some(id => id === currentUser._id);
+    // console.log(isLiked);
+    if (!isLiked) {
+      api.setLikes(card._id).then((newCard) =>{
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
+      })
+       .catch((err) => {
+       console.log(`Ошибка ${err}`);
+       });
+    } else {
+      api.deleteLike(card._id).then((newCard) => {
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
       })
       .catch((err) => {
         console.log(`Ошибка ${err}`);
-      });
+        });
+    }
   }
 
   function handleCardDelete(card) {
