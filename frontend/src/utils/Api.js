@@ -121,7 +121,7 @@ const processResponse = (res) => {
 };
 
 const api = new Api({ 
-  baseUrl: "http://api.mesto.taro.nomoredomains.rocks",  
+  baseUrl: "https://api.mesto.taro.nomoredomains.rocks",  
   headers: { 
     "Content-Type": "application/json", 
   }, 

@@ -1,4 +1,4 @@
-export const baseUrl = 'http://api.mesto.taro.nomoredomains.rocks'
+export const baseUrl = 'https://api.mesto.taro.nomoredomains.rocks'
 
 const processResponse = (res) => {
     if (res.ok) {
