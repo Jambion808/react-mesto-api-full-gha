@@ -47,8 +47,8 @@ const Register = ({ handleRegister }) => {
             name="password"
             onChange={handleChange}
             value={formValue.password}
-            minLength={2}
-            maxLength={30}
+            minLength="8"
+            maxLength="30"
           />
 
           <button className="ingress__button" type="submit">
