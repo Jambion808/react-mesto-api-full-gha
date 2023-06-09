@@ -35,8 +35,8 @@ const Register = ({ handleRegister }) => {
             name="email"
             onChange={handleChange}
             value={formValue.email}
-            minLength={2}
-            maxLength={30}
+            minLength="2"
+            maxLength="30"
           />
 
           <input
@@ -47,7 +47,7 @@ const Register = ({ handleRegister }) => {
             name="password"
             onChange={handleChange}
             value={formValue.password}
-            minLength="8"
+            minLength="2"
             maxLength="30"
           />
 
