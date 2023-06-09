@@ -59,6 +59,8 @@ function EditProfilePopup({ isOpen, onUpdateUser, onClose}) {
           className="popup__input popup__input_type_description"
           name="about"
           placeholder="Вид деятельности"
+          minLength="2"
+          maxLength="200"
           required
           value={about || ''}
           onChange={handleOnChangeAbout}
